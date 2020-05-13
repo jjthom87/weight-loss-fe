@@ -1,19 +1,26 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <h2>{{ whatever }}</h2>
+    <ul class="navbar-nav">
+      <li id="login-nav" class="nav-item" style="margin-right: 15px;">
+         <router-link to="/login">Login</router-link>
+      </li>
+      <li id="register-nav" class="nav-item">
+         <router-link to="/register">Register</router-link>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'Home',
   props: {
     whatever: String
   },
   data(){
     return {
-      msg: "Welcome, please Sign In or Sign Out"
+      msg: "Welcome, please Sign In or Sign Up"
     }
   }
 }
@@ -21,18 +28,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+
 </style>

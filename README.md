@@ -28,3 +28,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 * https://vue-test-utils.vuejs.org/
 * https://vuejs.org/v2/cookbook/unit-testing-vue-components.html
 * https://vuejs.org/v2/guide/unit-testing.html
+
+* https://github.com/vuejs/vue-test-utils/issues/994
