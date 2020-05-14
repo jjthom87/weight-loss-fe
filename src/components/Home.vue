@@ -13,6 +13,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'Home',
   props: {
@@ -22,7 +24,18 @@ export default {
     return {
       msg: "Welcome, please Sign In or Sign Up"
     }
-  }
+  },
+  mounted: function () {
+    axios.get(`http://localhost:8000/v1/api/signedin`, {
+      withCredentials: true  
+    })
+    .then(response => {
+      console.log(response)
+    })
+    .catch(e => {
+      console.log(e);
+    })
+  },
 }
 </script>
 
