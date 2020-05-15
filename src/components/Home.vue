@@ -9,6 +9,9 @@
          <router-link to="/register">Register</router-link>
       </li>
     </ul>
+    <div v-if="loggedInUser">
+      <button v-on:click="logout()">Logout</button>
+    </div>
   </div>
 </template>
 
@@ -22,20 +25,38 @@ export default {
   },
   data(){
     return {
-      msg: "Welcome, please Sign In or Sign Up"
+      msg: "Welcome, please Sign In or Sign Up",
+      loggedInUser: false
     }
   },
   mounted: function () {
     axios.get(`http://localhost:8000/v1/api/signedin`, {
-      withCredentials: true  
+      withCredentials: true
     })
     .then(response => {
-      console.log(response)
+      if(response.data.user){
+        this.loggedInUser = true
+      }
     })
     .catch(e => {
       console.log(e);
     })
   },
+  methods: {
+    logout(){
+      axios.get(`http://localhost:8000/v1/api/logout`, {
+        withCredentials: true
+      })
+      .then(response => {
+        if(response.data.success){
+          this.loggedInUser = false
+        }
+      })
+      .catch(e => {
+        console.log(e);
+      })
+    }
+  }
 }
 </script>
 
